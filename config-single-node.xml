@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<clickhouse>
+    <remote_servers>
+        <data_platform_cluster_sharded>
+            <shard>
+                <internal_replication>true</internal_replication>
+                <replica>
+                    <host>clickhouse-server</host>
+                    <port>9000</port>
+                </replica>
+            </shard>
+        </data_platform_cluster_sharded>
+    </remote_servers>
+    <zookeeper>
+        <node>
+            <host>zookeeper</host>
+            <port>2181</port>
+        </node>
+    </zookeeper>
+    <macros replace="replace">
+        <shard>01</shard>
+        <replica>ch-server-11</replica>
+        <cluster>data_platform_cluster_sharded</cluster>
+    </macros>
+    <merge_tree>
+        <allow_floating_point_partition_key>1</allow_floating_point_partition_key>
+    </merge_tree>
+    <dictionaries_config>dict_lambda.xml</dictionaries_config>
+</clickhouse>

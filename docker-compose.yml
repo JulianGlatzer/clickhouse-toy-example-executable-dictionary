@@ -1,0 +1,15 @@
+version: "3"
+services:
+  clickhouse-server:
+    image: clickhouse/clickhouse-server:22.3
+    volumes:
+      - ./dict_lambda.xml:/etc/clickhouse-server/dict_lambda.xml
+      - ./config-single-node.xml:/etc/clickhouse-server/config.d/local.xml
+      - ./user.xml:/etc/clickhouse-server/users.d/user.xml
+    ports:
+      - "8123:8123"
+      - "9000:9000"
+    depends_on:
+      - zookeeper
+  zookeeper:
+    image: wurstmeister/zookeeper:latest

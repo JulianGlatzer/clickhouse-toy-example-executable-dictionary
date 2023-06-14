@@ -1,0 +1,27 @@
+<yandex>
+    <users>
+        <!-- If user name was not specified, 'default' user is used. -->
+        <debug_user>
+            <password>test</password>
+            <access_management>1</access_management>
+
+            <networks>
+                <ip>::/0</ip>
+            </networks>
+
+            <quota>default</quota>
+        </debug_user>
+        <testuser>
+            <password>test</password>
+            <profile>default</profile>
+        </testuser>
+        <!-- Other users settings -->
+    </users>
+    <profiles>
+        <default>
+            <input_format_null_as_default>1</input_format_null_as_default>
+            <replication_alter_partitions_sync>2</replication_alter_partitions_sync>
+            <default_database_engine>Ordinary</default_database_engine>
+        </default>
+    </profiles>
+</yandex>

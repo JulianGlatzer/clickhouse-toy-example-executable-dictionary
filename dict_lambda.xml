@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<dictionaries>
+  <dictionary>
+    <name>lambdadict</name>
+    <structure>
+      <id><name>x</name></id>
+      <attribute>
+        <name>value</name>
+        <type>String</type>
+        <null_value>No such value</null_value>
+      </attribute>
+    </structure>
+    <source>
+      <executable>
+        <command>tee /tmp/input.txt | sort | uniq | awk '{printf "%s\t%s\n", $1, $1*2}' | tee /tmp/output.txt</command>
+        <format>TabSeparated</format>
+        <implicit_key>false</implicit_key>
+      </executable>
+    </source>
+    <layout><cache><size_in_cells>16384</size_in_cells></cache></layout>
+    <lifetime>300</lifetime>
+  </dictionary>
+</dictionaries>
