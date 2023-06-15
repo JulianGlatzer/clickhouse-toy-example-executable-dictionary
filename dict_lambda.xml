@@ -12,12 +12,12 @@
     </structure>
     <source>
       <executable>
-        <command>tee /tmp/input.txt | sort | uniq | awk '{printf "%s\t%s\n", $1, $1*2}' | tee /tmp/output.txt</command>
+        <command>tee /tmp/input_$(date +%s%N).txt | sort | uniq | awk '{printf "%s\t%s\n", $1, $1*2}' | tee /tmp/output_$(date +%s%N).txt</command>
         <format>TabSeparated</format>
         <implicit_key>false</implicit_key>
       </executable>
     </source>
-    <layout><cache><size_in_cells>16384</size_in_cells></cache></layout>
+    <layout><cache><size_in_cells>16384</size_in_cells><max_threads_for_updates>10</max_threads_for_updates><max_update_queue_size>10000000</max_update_queue_size></cache></layout>
     <lifetime>300</lifetime>
   </dictionary>
 </dictionaries>
